@@ -12,7 +12,10 @@ import { attachSocketServer } from "./socket.js";
 const app = express();
 const httpServer = createServer(app);
 const engine = new GameEngine({ config: gameConfig });
-const mockProvider = new MockChatProvider();
+const mockProvider = new MockChatProvider({
+  autoMessages: serverConfig.mockAutoMessages,
+  autoIntervalMs: serverConfig.mockAutoIntervalMs
+});
 const youtubeProvider = new YouTubeChatProvider({
   liveChatId: serverConfig.youtubeLiveChatId,
   apiKey: serverConfig.youtubeApiKey

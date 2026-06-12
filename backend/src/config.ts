@@ -29,6 +29,8 @@ export const serverConfig = {
   port: parseInteger(process.env.BACKEND_PORT, 4000),
   frontendOrigin: process.env.FRONTEND_ORIGIN ?? "http://localhost:5173",
   chatProvider: process.env.CHAT_PROVIDER ?? "mock",
+  mockAutoMessages: parseBoolean(process.env.MOCK_AUTO_MESSAGES, false),
+  mockAutoIntervalMs: parseInteger(process.env.MOCK_AUTO_INTERVAL_MS, 3500),
   youtubeLiveChatId: process.env.YOUTUBE_LIVE_CHAT_ID ?? "",
   youtubeApiKey: process.env.YOUTUBE_API_KEY ?? ""
 };
