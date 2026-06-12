@@ -154,9 +154,16 @@ h1 {
 }
 
 .banner-slot {
+  position: relative;
+  z-index: 1;
   display: grid;
   place-items: center;
-  min-height: 54px;
+  align-self: stretch;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-height: 100%;
   padding: 8px 12px;
   color: #06120e;
   font-size: 18px;
@@ -169,10 +176,30 @@ h1 {
     linear-gradient(90deg, #ffd166, #48ffaf);
 }
 
+.banner-slot--text span {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.banner-slot--image {
+  padding: 0;
+  background: #020504;
+}
+
 .banner-slot img {
+  display: block;
   width: 100%;
   height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .stats-grid {
@@ -627,7 +654,6 @@ h1 {
   }
 
   .banner-slot {
-    min-height: 42px;
     font-size: 13px;
   }
 

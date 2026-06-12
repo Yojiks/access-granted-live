@@ -6,7 +6,10 @@ interface BannerSlotProps {
 }
 
 const BannerSlot = ({ banner, position }: BannerSlotProps) => (
-  <aside className={`banner-slot banner-slot--${position}`} aria-label={`${position} ad banner`}>
+  <aside
+    className={`banner-slot banner-slot--${position} banner-slot--${banner.mode}`}
+    aria-label={`${position} ad banner`}
+  >
     {banner.mode === "image" ? (
       <img src={banner.content} alt={banner.alt ?? "Sponsor banner"} />
     ) : (
