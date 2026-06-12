@@ -6,6 +6,7 @@ import express from "express";
 import { gameConfig, serverConfig } from "./config.js";
 import { MockChatProvider } from "./chat/MockChatProvider.js";
 import { YouTubeChatProvider } from "./chat/YouTubeChatProvider.js";
+import { YouTubeNoKeyChatProvider } from "./chat/YouTubeNoKeyChatProvider.js";
 import { GameEngine } from "./game/GameEngine.js";
 import { attachSocketServer } from "./socket.js";
 
@@ -25,8 +26,18 @@ const youtubeProvider = new YouTubeChatProvider({
   minPollIntervalMs: serverConfig.youtubeMinPollIntervalMs,
   skipInitialMessages: serverConfig.youtubeSkipInitialMessages
 });
+const youtubeNoKeyProvider = new YouTubeNoKeyChatProvider({
+  videoId: serverConfig.youtubeVideoId,
+  pollIntervalMs: serverConfig.youtubeNoKeyPollIntervalMs,
+  skipInitialMessages: serverConfig.youtubeSkipInitialMessages
+});
 
-const provider = serverConfig.chatProvider === "youtube" ? youtubeProvider : mockProvider;
+const provider =
+  serverConfig.chatProvider === "youtube"
+    ? youtubeProvider
+    : serverConfig.chatProvider === "youtube_nokey"
+      ? youtubeNoKeyProvider
+      : mockProvider;
 
 app.use(cors({ origin: serverConfig.frontendOrigin }));
 app.use(express.json());

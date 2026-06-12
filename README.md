@@ -84,7 +84,7 @@ MOCK_AUTO_INTERVAL_MS=3500
 
 Backend умеет читать YouTube Live Chat через `YouTubeChatProvider`.
 
-Минимальная настройка в `.env`:
+Официальный вариант через Google API key:
 
 ```env
 CHAT_PROVIDER=youtube
@@ -95,6 +95,17 @@ YOUTUBE_VIDEO_ID=your_live_video_id
 Можно указать `YOUTUBE_LIVE_CHAT_ID` напрямую вместо `YOUTUBE_VIDEO_ID`. Provider использует `nextPageToken` и `pollingIntervalMillis`, дедуплицирует сообщения и отправляет новые сообщения в игру как `ChatMessage`.
 
 Если чат требует OAuth-доступ, заполните `YOUTUBE_OAUTH_ACCESS_TOKEN`. Секреты и токены не коммитьте в git.
+
+Если Google Cloud просит billing/payment, можно включить неофициальный no-key режим:
+
+```env
+CHAT_PROVIDER=youtube_nokey
+YOUTUBE_VIDEO_ID=your_live_video_id
+YOUTUBE_NOKEY_POLL_INTERVAL_MS=2500
+YOUTUBE_SKIP_INITIAL_MESSAGES=true
+```
+
+`youtube_nokey` читает публичную страницу стрима и использует внутренний live-chat endpoint YouTube. Это неофициальный способ: он не требует API key, но может сломаться, если YouTube изменит страницу или внутренний протокол.
 
 Debug-панель остается рабочей даже при `CHAT_PROVIDER=youtube`, чтобы тестировать игру без живого чата.
 

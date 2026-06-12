@@ -37,7 +37,8 @@ export const serverConfig = {
   youtubeOAuthAccessToken: process.env.YOUTUBE_OAUTH_ACCESS_TOKEN ?? "",
   youtubePollMaxResults: parseInteger(process.env.YOUTUBE_POLL_MAX_RESULTS, 200),
   youtubeMinPollIntervalMs: parseInteger(process.env.YOUTUBE_MIN_POLL_INTERVAL_MS, 2000),
-  youtubeSkipInitialMessages: parseBoolean(process.env.YOUTUBE_SKIP_INITIAL_MESSAGES, true)
+  youtubeSkipInitialMessages: parseBoolean(process.env.YOUTUBE_SKIP_INITIAL_MESSAGES, true),
+  youtubeNoKeyPollIntervalMs: parseInteger(process.env.YOUTUBE_NOKEY_POLL_INTERVAL_MS, 2500)
 };
 
 export const gameConfig: GameConfig = {
