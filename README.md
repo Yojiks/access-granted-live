@@ -102,10 +102,12 @@ npm run build
 
 ## Верхний баннер
 
-В `.env` можно настроить текст верхнего рекламного слота:
+В `.env` можно подключить готовый верхний баннер:
 
 ```env
-BANNER_1_MODE=text
-BANNER_1_CONTENT=SWIFTSHIELD VPN - от 100 рублей в месяц. Белые списки.
-BANNER_1_ALT=Top sponsor
+BANNER_1_MODE=image
+BANNER_1_CONTENT=/banners/swiftshield-hud-banner.png
+BANNER_1_ALT=SwiftShield VPN banner
 ```
+
+Исходник баннера лежит рядом: `frontend/public/banners/swiftshield-hud-banner.svg`.
