@@ -10,7 +10,7 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
-    "@hacker-game/shared": "workspace:*",
+    "@hacker-game/shared": "file:../shared",
     "@vitejs/plugin-react": "^4.3.4",
     "lucide-react": "^0.468.0",
     "socket.io-client": "^4.8.1",
