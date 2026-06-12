@@ -106,7 +106,7 @@ npm run build
 
 ```env
 BANNER_1_MODE=image
-BANNER_1_CONTENT=/banners/top.png
+BANNER_1_CONTENT=/banners/image.png
 BANNER_1_ALT=Top sponsor
 ```
 
