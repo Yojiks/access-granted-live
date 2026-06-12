@@ -19,6 +19,12 @@ const EventFeed = ({ events }: EventFeedProps) => (
       <span>LIVE SYSTEM LOG</span>
     </div>
     <div className="event-feed__list">
+      {events.length === 0 && (
+        <article className="event-line event-line--info">
+          <time>--:--</time>
+          <p>Ожидание входящих пакетов чата...</p>
+        </article>
+      )}
       {events.map((event) => (
         <article className={`event-line event-line--${event.severity}`} key={event.id}>
           <time>{formatTime(event.timestamp)}</time>

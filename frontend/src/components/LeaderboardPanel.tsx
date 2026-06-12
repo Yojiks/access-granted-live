@@ -14,7 +14,7 @@ const renderPlayers = (players: PlayerStats[], metric: keyof Pick<PlayerStats, "
         <strong>{player[metric]}</strong>
       </li>
     ))}
-    {players.length === 0 && <li className="leaderboard-list__empty">waiting for signal</li>}
+    {players.length === 0 && <li className="leaderboard-list__empty">нет данных</li>}
   </ol>
 );
 
