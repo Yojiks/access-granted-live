@@ -102,12 +102,10 @@ npm run build
 
 ## Верхний баннер
 
-В `.env` можно заменить текстовый верхний слот на изображение:
+В `.env` можно настроить текст верхнего рекламного слота:
 
 ```env
-BANNER_1_MODE=image
-BANNER_1_CONTENT=/banners/image.png
+BANNER_1_MODE=text
+BANNER_1_CONTENT=SWIFTSHIELD VPN - от 100 рублей в месяц. Белые списки.
 BANNER_1_ALT=Top sponsor
 ```
-
-Для локальных изображений положите файлы в `frontend/public/banners/`.
