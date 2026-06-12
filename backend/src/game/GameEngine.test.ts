@@ -81,7 +81,7 @@ describe("GameEngine", () => {
 
     now = 65_000;
     engine.handleChatMessage(chat("morpheus", "9821", now));
-    expect(engine.getSnapshot().visibleCode).toEqual(["4", null, "2", null]);
+    expect(engine.getSnapshot().visibleCode).toEqual(["4", "8", null, null]);
 
     now = 95_000;
     engine.handleChatMessage(chat("trinity", "4819", now));
@@ -161,8 +161,8 @@ describe("GameEngine", () => {
 
     now = 35_000;
     engine.handleChatMessage(chat("trinity", "4829", now));
-    now = 95_000;
-    engine.handleChatMessage(chat("neo", "4819", now));
+    now = 65_000;
+    engine.handleChatMessage(chat("trinity", "0829", now));
     now = 100_000;
     engine.handleChatMessage(chat("neo", "4821", now));
 
