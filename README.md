@@ -82,13 +82,19 @@ MOCK_AUTO_INTERVAL_MS=3500
 
 ## YouTube Live Chat API
 
-В MVP реальная интеграция вынесена в `YouTubeChatProvider` как stub. Для подключения YouTube позже:
+Backend умеет читать YouTube Live Chat через `YouTubeChatProvider`.
 
-1. Установите `CHAT_PROVIDER=youtube`.
-2. Заполните `YOUTUBE_LIVE_CHAT_ID` и `YOUTUBE_API_KEY`.
-3. Реализуйте polling в `backend/src/chat/YouTubeChatProvider.ts`.
-4. Маппите сообщения YouTube в общий формат `ChatMessage`.
-5. Если понадобится OAuth, добавьте отдельный auth-flow и хранение токенов вне git.
+Минимальная настройка в `.env`:
+
+```env
+CHAT_PROVIDER=youtube
+YOUTUBE_API_KEY=your_api_key
+YOUTUBE_VIDEO_ID=your_live_video_id
+```
+
+Можно указать `YOUTUBE_LIVE_CHAT_ID` напрямую вместо `YOUTUBE_VIDEO_ID`. Provider использует `nextPageToken` и `pollingIntervalMillis`, дедуплицирует сообщения и отправляет новые сообщения в игру как `ChatMessage`.
+
+Если чат требует OAuth-доступ, заполните `YOUTUBE_OAUTH_ACCESS_TOKEN`. Секреты и токены не коммитьте в git.
 
 Debug-панель остается рабочей даже при `CHAT_PROVIDER=youtube`, чтобы тестировать игру без живого чата.
 

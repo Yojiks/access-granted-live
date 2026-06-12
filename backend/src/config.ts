@@ -32,7 +32,12 @@ export const serverConfig = {
   mockAutoMessages: parseBoolean(process.env.MOCK_AUTO_MESSAGES, false),
   mockAutoIntervalMs: parseInteger(process.env.MOCK_AUTO_INTERVAL_MS, 3500),
   youtubeLiveChatId: process.env.YOUTUBE_LIVE_CHAT_ID ?? "",
-  youtubeApiKey: process.env.YOUTUBE_API_KEY ?? ""
+  youtubeVideoId: process.env.YOUTUBE_VIDEO_ID ?? "",
+  youtubeApiKey: process.env.YOUTUBE_API_KEY ?? "",
+  youtubeOAuthAccessToken: process.env.YOUTUBE_OAUTH_ACCESS_TOKEN ?? "",
+  youtubePollMaxResults: parseInteger(process.env.YOUTUBE_POLL_MAX_RESULTS, 200),
+  youtubeMinPollIntervalMs: parseInteger(process.env.YOUTUBE_MIN_POLL_INTERVAL_MS, 2000),
+  youtubeSkipInitialMessages: parseBoolean(process.env.YOUTUBE_SKIP_INITIAL_MESSAGES, true)
 };
 
 export const gameConfig: GameConfig = {

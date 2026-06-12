@@ -18,7 +18,12 @@ const mockProvider = new MockChatProvider({
 });
 const youtubeProvider = new YouTubeChatProvider({
   liveChatId: serverConfig.youtubeLiveChatId,
-  apiKey: serverConfig.youtubeApiKey
+  videoId: serverConfig.youtubeVideoId,
+  apiKey: serverConfig.youtubeApiKey,
+  oauthAccessToken: serverConfig.youtubeOAuthAccessToken,
+  maxResults: serverConfig.youtubePollMaxResults,
+  minPollIntervalMs: serverConfig.youtubeMinPollIntervalMs,
+  skipInitialMessages: serverConfig.youtubeSkipInitialMessages
 });
 
 const provider = serverConfig.chatProvider === "youtube" ? youtubeProvider : mockProvider;
