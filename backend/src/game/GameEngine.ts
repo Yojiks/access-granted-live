@@ -120,6 +120,11 @@ export class GameEngine {
     this.startNewRound();
   }
 
+  dispose() {
+    this.clearTimers();
+    this.emitter.removeAllListeners();
+  }
+
   getSnapshot(options: { debug?: boolean } = {}): GameSnapshot {
     const elapsedSeconds = this.elapsedSeconds();
     const maxRevealedDigits = maxRevealedDigitsForElapsed(elapsedSeconds);
