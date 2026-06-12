@@ -1,16 +1,11 @@
 import { Activity, Crosshair, Radio, Timer, Users } from "lucide-react";
 
 import type { GameSnapshot } from "@hacker-game/shared";
+import { formatClock } from "../lib/format";
 
 interface StatsGridProps {
   snapshot: GameSnapshot;
 }
-
-const formatSeconds = (seconds: number) => {
-  const minutes = Math.floor(seconds / 60).toString().padStart(2, "0");
-  const rest = Math.floor(seconds % 60).toString().padStart(2, "0");
-  return `${minutes}:${rest}`;
-};
 
 const StatsGrid = ({ snapshot }: StatsGridProps) => {
   const stats = [
@@ -18,7 +13,7 @@ const StatsGrid = ({ snapshot }: StatsGridProps) => {
     { label: "ATTEMPTS", value: snapshot.attempts, icon: <Crosshair size={18} /> },
     { label: "USERS", value: snapshot.participants, icon: <Users size={18} /> },
     { label: "OPEN", value: `${snapshot.revealedPositions.length}/3`, icon: <Activity size={18} /> },
-    { label: "TIMER", value: formatSeconds(snapshot.elapsedSeconds), icon: <Timer size={18} /> }
+    { label: "TIMER", value: formatClock(snapshot.elapsedSeconds), icon: <Timer size={18} /> }
   ];
 
   return (

@@ -1,16 +1,11 @@
 import { Terminal } from "lucide-react";
 
 import type { GameEvent } from "@hacker-game/shared";
+import { formatEventTime } from "../lib/format";
 
 interface EventFeedProps {
   events: GameEvent[];
 }
-
-const formatTime = (timestamp: number) =>
-  new Intl.DateTimeFormat("ru", {
-    minute: "2-digit",
-    second: "2-digit"
-  }).format(timestamp);
 
 const EventFeed = ({ events }: EventFeedProps) => (
   <section className="terminal-panel event-feed" aria-label="Event feed">
@@ -27,7 +22,7 @@ const EventFeed = ({ events }: EventFeedProps) => (
       )}
       {events.map((event) => (
         <article className={`event-line event-line--${event.severity}`} key={event.id}>
-          <time>{formatTime(event.timestamp)}</time>
+          <time>{formatEventTime(event.timestamp)}</time>
           <p>{event.message}</p>
         </article>
       ))}
