@@ -10,11 +10,20 @@ const BannerSlot = ({ banner, position }: BannerSlotProps) => (
     className={`banner-slot banner-slot--${position} banner-slot--${banner.mode}`}
     aria-label={`${position} ad banner`}
   >
+    <span className="banner-slot__notch banner-slot__notch--top" aria-hidden="true">
+      <i />
+      <i />
+      <i />
+    </span>
+    <span className="banner-slot__notch banner-slot__notch--bottom" aria-hidden="true">
+      <i />
+      <i />
+      <i />
+    </span>
     {banner.mode === "image" ? (
       <img src={banner.content} alt={banner.alt ?? "Sponsor banner"} />
     ) : (
       <span className="banner-slot__content">
-        <span className="banner-slot__label">SPONSOR NODE</span>
         <span className="banner-slot__text">{banner.content}</span>
       </span>
     )}

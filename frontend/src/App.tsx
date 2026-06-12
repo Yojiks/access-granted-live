@@ -35,10 +35,13 @@ const App = () => {
             <BannerSlot banner={snapshot.config.banner1} position="top" />
             <StatsGrid snapshot={snapshot} />
             <CodeDisplay snapshot={snapshot} />
-            <LeakTimer snapshot={snapshot} />
+            {snapshot.winnerWindow || snapshot.winnerMessage ? (
+              <WinnerOverlay snapshot={snapshot} />
+            ) : (
+              <LeakTimer snapshot={snapshot} />
+            )}
             <EventFeed events={snapshot.events} />
             <LeaderboardPanel leaderboard={snapshot.leaderboard} />
-            <WinnerOverlay snapshot={snapshot} />
           </>
         ) : (
           <section className="boot-panel">
