@@ -71,7 +71,7 @@ button {
   height: min(100vh, 177.78vw);
   aspect-ratio: 9 / 16;
   display: grid;
-  grid-template-rows: auto 54px auto minmax(214px, 1fr) auto minmax(220px, 1.05fr) minmax(132px, 0.72fr) 56px;
+  grid-template-rows: auto 54px auto minmax(214px, 1fr) auto minmax(250px, 1.16fr) minmax(150px, 0.8fr);
   gap: 12px;
   padding: 18px;
   color: var(--text);
@@ -99,10 +99,9 @@ button {
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
-  min-height: 70px;
+  min-height: 54px;
 }
 
-.eyebrow,
 .code-panel__meta,
 .section-title,
 .stat-tile small,
@@ -114,15 +113,8 @@ button {
   font-family: "Consolas", "SFMono-Regular", ui-monospace, monospace;
 }
 
-.eyebrow {
-  display: block;
-  color: var(--cyan);
-  font-size: 12px;
-  line-height: 1.25;
-}
-
 h1 {
-  margin: 4px 0 0;
+  margin: 0;
   color: var(--green);
   font-size: 34px;
   line-height: 0.98;
@@ -453,7 +445,8 @@ h1 {
   z-index: 6;
   left: 28px;
   right: 28px;
-  top: 36%;
+  top: auto;
+  bottom: 178px;
   display: grid;
   justify-items: center;
   gap: 10px;
@@ -492,7 +485,6 @@ h1 {
 }
 
 .winner-overlay--message {
-  top: 38%;
   border-color: rgba(255, 209, 102, 0.78);
   box-shadow: 0 0 52px rgba(255, 209, 102, 0.26);
 }
@@ -627,7 +619,7 @@ h1 {
   .overlay-frame {
     gap: 8px;
     padding: 10px;
-    grid-template-rows: auto 42px auto minmax(166px, 1fr) auto minmax(150px, 0.92fr) minmax(98px, 0.62fr) 42px;
+    grid-template-rows: auto 42px auto minmax(166px, 1fr) auto minmax(188px, 0.98fr) minmax(112px, 0.68fr);
   }
 
   h1 {
@@ -637,6 +629,10 @@ h1 {
   .banner-slot {
     min-height: 42px;
     font-size: 13px;
+  }
+
+  .winner-overlay {
+    bottom: 116px;
   }
 
   .code-panel {

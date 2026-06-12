@@ -13,4 +13,4 @@ Use this after `npm run dev:backend` and `npm run dev:frontend`.
 - Send a winner message from the winning nickname within 15 seconds and confirm it is shown.
 - Win again, send no winner message, and confirm the timeout notice appears.
 - Confirm a new round starts after the reset delay.
-- Confirm both banner slots render text or configured image paths.
+- Confirm the top banner renders text or a configured image path.

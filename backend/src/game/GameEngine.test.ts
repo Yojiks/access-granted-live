@@ -9,7 +9,6 @@ const config: GameConfig = {
   guessCooldownSeconds: 2,
   maxEventsOnScreen: 20,
   banner1: { mode: "text", content: "TOP" },
-  banner2: { mode: "text", content: "BOTTOM" },
   enableHints: true,
   enableRandomGlitches: false,
   roundResetDelaySeconds: 5

@@ -16,14 +16,16 @@ const formatCountdown = (seconds: number | null) => {
 
 const leakLabel = (snapshot: GameSnapshot) => {
   if (snapshot.maxRevealedDigits === 0) {
-    return "Частичные совпадения заблокированы";
+    return "FIREWALL LOCKDOWN // фрагменты под замком";
   }
 
   if (snapshot.maxRevealedDigits >= 3) {
-    return "Открыт максимум: финальная цифра только полным кодом";
+    return "OMEGA PHASE // финальная цифра скрыта";
   }
 
-  return `Можно открыть до ${snapshot.maxRevealedDigits} фрагм. кода`;
+  return snapshot.maxRevealedDigits === 1
+    ? "ALPHA LEAK // активен первый канал"
+    : "BETA LEAK // активны два канала";
 };
 
 const LeakTimer = ({ snapshot }: LeakTimerProps) => (

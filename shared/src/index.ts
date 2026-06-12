@@ -73,7 +73,6 @@ export interface GameConfig {
   guessCooldownSeconds: number;
   maxEventsOnScreen: number;
   banner1: BannerConfig;
-  banner2: BannerConfig;
   enableHints: boolean;
   enableRandomGlitches: boolean;
   roundResetDelaySeconds: number;

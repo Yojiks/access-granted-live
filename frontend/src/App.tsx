@@ -22,7 +22,6 @@ const App = () => {
         <div className="scanline-layer" aria-hidden="true" />
         <header className="app-header">
           <div>
-            <span className="eyebrow">YouTube Shorts Live // OBS Browser Source</span>
             <h1>SYSTEM BREACH SIMULATOR</h1>
           </div>
           <div className={`connection-pill connection-pill--${connectionState}`}>
@@ -39,7 +38,6 @@ const App = () => {
             <LeakTimer snapshot={snapshot} />
             <EventFeed events={snapshot.events} />
             <LeaderboardPanel leaderboard={snapshot.leaderboard} />
-            <BannerSlot banner={snapshot.config.banner2} position="bottom" />
             <WinnerOverlay snapshot={snapshot} />
           </>
         ) : (

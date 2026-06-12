@@ -19,7 +19,7 @@ const parseBoolean = (value: string | undefined, fallback: boolean) => {
   return ["1", "true", "yes", "on"].includes(value.toLowerCase());
 };
 
-const banner = (prefix: "BANNER_1" | "BANNER_2", fallback: string) => ({
+const banner = (prefix: "BANNER_1", fallback: string) => ({
   mode: process.env[`${prefix}_MODE`] === "image" ? "image" as const : "text" as const,
   content: process.env[`${prefix}_CONTENT`] ?? fallback,
   alt: process.env[`${prefix}_ALT`] ?? fallback
@@ -41,7 +41,6 @@ export const gameConfig: GameConfig = {
   guessCooldownSeconds: parseInteger(process.env.GUESS_COOLDOWN_SECONDS, 2),
   maxEventsOnScreen: parseInteger(process.env.MAX_EVENTS_ON_SCREEN, 12),
   banner1: banner("BANNER_1", "AD SLOT // TOP NODE"),
-  banner2: banner("BANNER_2", "AD SLOT // BOTTOM NODE"),
   enableHints: parseBoolean(process.env.ENABLE_HINTS, true),
   enableRandomGlitches: parseBoolean(process.env.ENABLE_RANDOM_GLITCHES, true),
   roundResetDelaySeconds: parseInteger(process.env.ROUND_RESET_DELAY_SECONDS, 5)
