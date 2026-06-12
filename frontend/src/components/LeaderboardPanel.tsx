@@ -19,10 +19,10 @@ const renderPlayers = (players: PlayerStats[], metric: keyof Pick<PlayerStats, "
 );
 
 const LeaderboardPanel = ({ leaderboard }: LeaderboardPanelProps) => (
-  <section className="terminal-panel leaderboard" aria-label="Leaderboard">
+  <section className="terminal-panel leaderboard" aria-label="Breach ranks">
     <div className="section-title">
       <Trophy size={16} />
-      <span>LEADERBOARD</span>
+      <span>BREACH RANKS</span>
     </div>
     <div className="leaderboard-grid">
       <div>
