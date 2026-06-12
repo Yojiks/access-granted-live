@@ -84,7 +84,7 @@ describe("GameEngine", () => {
     expect(engine.getSnapshot().visibleCode).toEqual(["4", "8", null, null]);
 
     now = 95_000;
-    engine.handleChatMessage(chat("trinity", "4819", now));
+    engine.handleChatMessage(chat("trinity", "4829", now));
     expect(engine.getSnapshot().visibleCode).toEqual(["4", "8", "2", null]);
 
     now = 100_000;
