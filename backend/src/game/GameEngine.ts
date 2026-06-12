@@ -172,6 +172,17 @@ export class GameEngine {
         !this.revealedPositions.has(position)
     );
 
+    if (maxRevealed === 0) {
+      this.addEvent(
+        "guess_received",
+        `${formatNick(nickname)} пытается взломать код: ${guess} // доступ запрещен`,
+        "warning",
+        { nickname, guess }
+      );
+      this.maybeEmitGlitch();
+      return;
+    }
+
     this.addEvent(
       "guess_received",
       `${formatNick(nickname)} пытается взломать код: ${guess} // ${matchedPositions.length}/4`,
