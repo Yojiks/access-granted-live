@@ -16,16 +16,14 @@ const formatCountdown = (seconds: number | null) => {
 
 const leakLabel = (snapshot: GameSnapshot) => {
   if (snapshot.maxRevealedDigits === 0) {
-    return "FIREWALL LOCKDOWN // фрагменты под замком";
+    return "FIREWALL LOCKDOWN";
   }
 
   if (snapshot.maxRevealedDigits >= 3) {
-    return "OMEGA PHASE // финальная цифра скрыта";
+    return "ROOT TRACE ARMED";
   }
 
-  return snapshot.maxRevealedDigits === 1
-    ? "ALPHA LEAK // активен первый канал"
-    : "BETA LEAK // активны два канала";
+  return snapshot.maxRevealedDigits === 1 ? "PORT 31337 OPEN" : "KERNEL LEAK ACTIVE";
 };
 
 const LeakTimer = ({ snapshot }: LeakTimerProps) => (
