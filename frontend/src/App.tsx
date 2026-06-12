@@ -22,7 +22,7 @@ const App = () => {
         <div className="scanline-layer" aria-hidden="true" />
         <header className="app-header">
           <div>
-            <h1>SYSTEM BREACH SIMULATOR</h1>
+            <h1>HACK ME</h1>
           </div>
           <div className={`connection-pill connection-pill--${connectionState}`}>
             <span />
