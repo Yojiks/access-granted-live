@@ -1,6 +1,10 @@
-import "dotenv/config";
+import { resolve } from "node:path";
 
 import type { GameConfig } from "@hacker-game/shared";
+import { config as loadEnv } from "dotenv";
+
+loadEnv({ path: resolve(process.cwd(), "../.env") });
+loadEnv({ path: resolve(process.cwd(), ".env"), override: true });
 
 const parseInteger = (value: string | undefined, fallback: number) => {
   const parsed = Number.parseInt(value ?? "", 10);
