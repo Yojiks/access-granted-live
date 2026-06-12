@@ -48,9 +48,10 @@ describe("GameEngine", () => {
   };
 
   it("discards partial matches before 30 seconds", () => {
-    let now = 20_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 20_000;
     engine.handleChatMessage(chat("neo", "4729", now));
 
     const snapshot = engine.getSnapshot();
@@ -60,9 +61,10 @@ describe("GameEngine", () => {
   });
 
   it("reveals at most one allowed position per timed attempt", () => {
-    let now = 35_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 35_000;
     engine.handleChatMessage(chat("trinity", "4829", now));
 
     expect(engine.getSnapshot().visibleCode).toEqual(["4", null, null, null]);
@@ -70,9 +72,10 @@ describe("GameEngine", () => {
   });
 
   it("reveals first three positions over time and never auto-reveals the fourth", () => {
-    let now = 35_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 35_000;
     engine.handleChatMessage(chat("neo", "4729", now));
     expect(engine.getSnapshot().visibleCode).toEqual(["4", null, null, null]);
 
@@ -90,9 +93,10 @@ describe("GameEngine", () => {
   });
 
   it("allows a full-code win immediately", () => {
-    let now = 1_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 1_000;
     engine.handleChatMessage(chat("neo", "4821", now));
 
     const snapshot = engine.getSnapshot();
@@ -103,9 +107,10 @@ describe("GameEngine", () => {
   });
 
   it("captures the first message from the winner during the winner window", () => {
-    let now = 1_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 1_000;
     engine.handleChatMessage(chat("neo", "4821", now));
     now = 4_000;
     engine.handleChatMessage(chat("trinity", "hello from outside", now));
@@ -122,9 +127,10 @@ describe("GameEngine", () => {
 
   it("times out if the winner does not send a message", () => {
     vi.useFakeTimers();
-    let now = 1_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 1_000;
     engine.handleChatMessage(chat("neo", "4821", now));
     now = 16_000;
     vi.advanceTimersByTime(15_000);
@@ -136,9 +142,10 @@ describe("GameEngine", () => {
   });
 
   it("enforces per-user guess cooldown", () => {
-    let now = 35_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 35_000;
     engine.handleChatMessage(chat("neo", "1111", now));
     now = 36_000;
     engine.handleChatMessage(chat("neo", "2222", now));
@@ -149,9 +156,10 @@ describe("GameEngine", () => {
   });
 
   it("tracks leaderboard stats for wins, reveals, attempts and near misses", () => {
-    let now = 35_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 35_000;
     engine.handleChatMessage(chat("trinity", "4829", now));
     now = 95_000;
     engine.handleChatMessage(chat("neo", "4819", now));
@@ -165,9 +173,10 @@ describe("GameEngine", () => {
   });
 
   it("force-resets into a clean new round", () => {
-    let now = 35_000;
+    let now = 0;
     const engine = track(createEngine({ now: () => now }));
 
+    now = 35_000;
     engine.handleChatMessage(chat("neo", "4729", now));
     engine.forceNewRound();
 
