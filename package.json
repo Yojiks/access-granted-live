@@ -9,11 +9,11 @@
     "shared"
   ],
   "scripts": {
-    "build": "npm run build --workspaces",
+    "build": "npm run build -w shared && npm run build -w backend && npm run build -w frontend",
     "dev:backend": "npm run dev -w backend",
     "dev:frontend": "npm run dev -w frontend",
-    "test": "npm run test -w backend",
-    "typecheck": "npm run typecheck --workspaces --if-present"
+    "test": "npm run build -w shared && npm run test -w backend",
+    "typecheck": "npm run build -w shared && npm run typecheck -w backend && npm run typecheck -w frontend"
   },
   "engines": {
     "node": ">=20.0.0",
